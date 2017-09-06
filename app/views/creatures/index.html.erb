@@ -1,0 +1,26 @@
+<h1 class='text-center'>Bog App Two</h1>
+<div class='container creature-container'>
+    <% @creatures.each do |creature| %>
+    <%=link_to creature_path(creature.id) do%>
+        <div class='creature-div'>
+            <div>
+            <strong>Name:</strong> <%= creature.name %>
+            <br/>
+            <strong>Description:</strong> <%= creature.description %>
+            </div>
+            <div class='creature-buttons'>
+                <div>
+                    <%=link_to edit_creature_path(creature) do %>
+                    <button class='btn btn-info'><%=icon('pencil', class: 'strong')%> </button>
+                    <%end%>
+                </div>
+                <div class='creature-delete'>
+                    <%=link_to creature_path(creature), method: :delete do %>
+                    <button class='btn btn-danger'><%=icon('trash', class: 'strong')%></button>
+                    <%end%>
+                </div>
+            </div>
+        </div>
+    <% end %>
+    <% end %>
+</div>
